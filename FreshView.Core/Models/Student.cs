@@ -15,36 +15,43 @@ namespace FreshView.Core.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        [Required]
         /// <summary>
         /// Фамилия.
         /// </summary>
         public string LastName { get; set; }
+        [Required]
         /// <summary>
         /// Отчество.
         /// </summary>
         public string SeconName { get; set; }
+        [Required]
         /// <summary>
         /// Имя.
         /// </summary>
         public string Name { get; set; }
+        [Required]
         /// <summary>
         /// Специальность.
         /// </summary>
         public Guid SpecialityId { get; set; }
         // TODO: Оценки на курсах.
+        [Required]
         /// <summary>
         /// Группа.
         /// </summary>
         public Guid StudyGroupId { get; set; }
+        [Required]
         /// <summary>
         /// Кафедра.
         /// </summary>
-        public string Department { get; set; }
+        public Guid DepartmentId { get; set; }
+        [Required]
         /// <summary>
         /// Рейтинг.
         /// </summary>
-        public double Rating { get; set; }
+        public double Rating { get; set; } = 50.5;
         /// <summary>
         /// Конкурсы.
         /// </summary>
@@ -56,5 +63,6 @@ namespace FreshView.Core.Models
 
         public virtual Speciality Speciality { get; set; }
         public virtual StudyGroup StudyGroup { get; set; }
+        public virtual Department Department { get; set; }
     }
 }

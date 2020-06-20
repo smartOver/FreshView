@@ -15,15 +15,21 @@ namespace FreshView.Core.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        [Required]
         /// <summary>
         /// Курс.
         /// </summary>
         public Guid CourseId { get; set; }
+        [Required]
         /// <summary>
         /// Предприятие.
         /// </summary>
         public Guid CompanyId { get; set; }
+        [Required]
+        /// <summary>
+        /// Тип задачи.
+        /// </summary>
         public Guid TaskTypeId { get; set; }
 
         public virtual Course Course { get; set; }

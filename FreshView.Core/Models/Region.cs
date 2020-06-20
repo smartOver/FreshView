@@ -15,7 +15,8 @@ namespace FreshView.Core.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        [Required]
         /// <summary>
         /// Название.
         /// </summary>

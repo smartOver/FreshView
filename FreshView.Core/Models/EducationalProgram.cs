@@ -26,21 +26,24 @@ namespace FreshView.Core.Models
         /// Название программы.
         /// </summary>
         public string Name { get; set; }
+        [Required]
         /// <summary>
         /// Описание программы.
         /// </summary>
-        public string Descriptions { get; set; }
+        public string Descriptions { get; set; } = "";
+        [Required]
         /// <summary>
         /// Ссылка на описание стандарта.
         /// </summary>
-        public string StandsrtsDescription { get; set; }
+        public string StandsrtsDescription { get; set; } = "";
         /// <summary>
         /// Список курсов.
         /// </summary>
         public List<Course> Courses { get; set; }
+        [Required]
         /// <summary>
         /// Индикатор состояния.
         /// </summary>
-        public int StatusIdicator { get; set; }
+        public int StatusIdicator { get; set; } = 0;
     }
 }
