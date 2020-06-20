@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace FreshView.Core.Models
 {
     /// <summary>
-    /// Регион.
+    /// Учебная группа.
     /// </summary>
-    public class Region
+    public class StudyGroup
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,5 +20,9 @@ namespace FreshView.Core.Models
         /// Название.
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Студенты.
+        /// </summary>
+        public List<Student> Students { get; set; }
     }
 }

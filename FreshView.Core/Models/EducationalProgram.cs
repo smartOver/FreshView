@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +13,15 @@ namespace FreshView.Core.Models
     /// </summary>
     public class EducationalProgram
     {
-        public Guid Id { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; } = Guid.NewGuid();
+        [Required]
         /// <summary>
         /// Код направления.
         /// </summary>
-        public string CourcesCode { get; set; }
+        public string CourcesCode { get; set; } = "";
+        [Required]
         /// <summary>
         /// Название программы.
         /// </summary>
@@ -28,7 +34,10 @@ namespace FreshView.Core.Models
         /// Ссылка на описание стандарта.
         /// </summary>
         public string StandsrtsDescription { get; set; }
-        // TODO: Список специальностей.
+        /// <summary>
+        /// Список курсов.
+        /// </summary>
+        public List<Course> Courses { get; set; }
         /// <summary>
         /// Индикатор состояния.
         /// </summary>

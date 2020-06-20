@@ -9,16 +9,21 @@ using System.Threading.Tasks;
 namespace FreshView.Core.Models
 {
     /// <summary>
-    /// Регион.
+    /// Кафедра.
     /// </summary>
-    public class Region
+    public class Department
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        [Required]
         /// <summary>
         /// Название.
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Преподаватели.
+        /// </summary>
+        public List<Teacher> Teachers { get; set; }
     }
 }

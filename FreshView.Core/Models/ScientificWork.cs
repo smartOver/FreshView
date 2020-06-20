@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,8 @@ namespace FreshView.Core.Models
     /// </summary>
     public class ScientificWork
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         /// <summary>
         /// Название.
@@ -31,8 +35,7 @@ namespace FreshView.Core.Models
         /// <summary>
         /// Направление.
         /// </summary>
-        public string Course { get; set; }
-#warning Это должна быть ссылка на направление как модель данных?
+        public Guid CourseId { get; set; }
         /// <summary>
         /// Ключевые слова.
         /// </summary>
@@ -46,5 +49,8 @@ namespace FreshView.Core.Models
         /// Аннотация.
         /// </summary>
         public string Annotation { get; set; }
+
+        public virtual Course Course { get; set; }
+        public List<Teacher> Teachers { get; set; }
     }
 }

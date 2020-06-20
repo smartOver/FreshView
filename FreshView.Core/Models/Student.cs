@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,8 @@ namespace FreshView.Core.Models
     /// </summary>
     public class Student
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         /// <summary>
         /// Фамилия.
@@ -28,12 +32,11 @@ namespace FreshView.Core.Models
         /// Специальность.
         /// </summary>
         public Guid SpecialityId { get; set; }
-        // TODO: Конкурсы.
         // TODO: Оценки на курсах.
         /// <summary>
-        /// Номер группы.
+        /// Группа.
         /// </summary>
-        public int? GroupNumber { get; set; }
+        public Guid StudyGroupId { get; set; }
         /// <summary>
         /// Кафедра.
         /// </summary>
@@ -42,7 +45,16 @@ namespace FreshView.Core.Models
         /// Рейтинг.
         /// </summary>
         public double Rating { get; set; }
+        /// <summary>
+        /// Конкурсы.
+        /// </summary>
+        public List<Competition> Competitions { get; set; }
+        /// <summary>
+        /// Оценки.
+        /// </summary>
+        public List<Grade> Grades { get; set; }
 
         public virtual Speciality Speciality { get; set; }
+        public virtual StudyGroup StudyGroup { get; set; }
     }
 }
