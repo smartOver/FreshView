@@ -20,7 +20,7 @@ namespace FreshView.Core.Models
         /// <summary>
         /// Код направления.
         /// </summary>
-        public string CourcesCode { get; set; } = "";
+        public string ProgramsCode { get; set; } = "";
         [Required]
         /// <summary>
         /// Название программы.
@@ -30,12 +30,12 @@ namespace FreshView.Core.Models
         /// <summary>
         /// Описание программы.
         /// </summary>
-        public string Descriptions { get; set; } = "";
+        public string Description { get; set; } = "";
         [Required]
         /// <summary>
         /// Ссылка на описание стандарта.
         /// </summary>
-        public string StandsrtsDescription { get; set; } = "";
+        public string StandartsDescription { get; set; } = "";
         /// <summary>
         /// Список курсов.
         /// </summary>
@@ -45,5 +45,9 @@ namespace FreshView.Core.Models
         /// Индикатор состояния.
         /// </summary>
         public int StatusIdicator { get; set; } = 0;
+        public EducationalProgram()
+        {
+            Courses = new List<Course>();
+        }
     }
 }

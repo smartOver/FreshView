@@ -50,5 +50,11 @@ namespace FreshView.Core.Models
         /// Курсы.
         /// </summary>
         public List<Course> Cources { get; set; }
+        public Competition()
+        {
+            Teachers = new List<Teacher>();
+            Students = new List<Student>();
+            Cources = new List<Course>();
+        }
     }
 }

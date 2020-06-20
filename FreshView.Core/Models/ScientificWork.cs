@@ -60,5 +60,9 @@ namespace FreshView.Core.Models
 
         public virtual Course Course { get; set; }
         public List<Teacher> Teachers { get; set; }
+        public ScientificWork()
+        {
+            Teachers = new List<Teacher>();
+        }
     }
 }

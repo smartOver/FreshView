@@ -25,7 +25,7 @@ namespace FreshView.Core.Models
         /// <summary>
         /// Отчество.
         /// </summary>
-        public string SeconName { get; set; }
+        public string SecondName { get; set; }
         [Required]
         /// <summary>
         /// Имя.

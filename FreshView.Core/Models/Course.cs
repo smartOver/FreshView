@@ -73,5 +73,11 @@ namespace FreshView.Core.Models
         /// </summary>
         public Guid EducationalProgramId { get; set; }
         public virtual EducationalProgram EducationalProgram { get; set; }
+        public Course()
+        {
+            Teachers = new List<Teacher>();
+            StudyGroups = new List<StudyGroup>();
+            Competencies = new List<Competence>();
+        }
     }
 }

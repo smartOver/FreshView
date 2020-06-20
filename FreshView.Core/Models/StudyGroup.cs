@@ -25,5 +25,9 @@ namespace FreshView.Core.Models
         /// Студенты.
         /// </summary>
         public List<Student> Students { get; set; }
+        public StudyGroup()
+        {
+            Students = new List<Student>();
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace FreshView.Core.Models
         /// <summary>
         /// Отчество.
         /// </summary>
-        public string SeconName { get; set; }
+        public string SecondName { get; set; }
         [Required]
         /// <summary>
         /// Имя.
@@ -116,5 +116,11 @@ namespace FreshView.Core.Models
 
         public virtual TeachersCategory TeachersCategory { get; set; }
         public virtual Department Department { get; set; }
+        public Teacher()
+        {
+            Courses = new List<Course>();
+            Competitions = new List<Competition>();
+            ScientificWorks = new List<ScientificWork>();
+        }
     }
 }

@@ -25,5 +25,9 @@ namespace FreshView.Core.Models
         /// Преподаватели.
         /// </summary>
         public List<Teacher> Teachers { get; set; }
+        public Department()
+        {
+            Teachers = new List<Teacher>();
+        }
     }
 }

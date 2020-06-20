@@ -39,6 +39,8 @@ namespace FreshView.Core
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
+
+            SeedData.Seed(app);
         }
     }
 }
