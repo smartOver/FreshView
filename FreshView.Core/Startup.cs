@@ -18,7 +18,8 @@ namespace FreshView.Core
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql("%CONNECTION_STRING%"));
+            string con = "Server=localhost;Database=dbTest;Username=postgres;Password=1";
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(con));
             services.AddControllers();
         }
 
@@ -34,10 +35,7 @@ namespace FreshView.Core
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
 
             SeedData.Seed(app);
