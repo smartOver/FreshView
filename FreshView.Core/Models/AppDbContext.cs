@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,24 @@ namespace FreshView.Core.Models
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             Database.EnsureCreated();
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<CompetitionTeacher>().HasKey(t => new { t.CompetitionId, t.TeacherId });
+
+            
+
+            builder.Entity<CourseCompetence>().HasKey(t => new { t.CourceId, t.CompetenceId });
+
+            builder.Entity<CourseStudyGroup>().HasKey(t => new { t.CourseId, t.StudyGroupId });
+
+            builder.Entity<ExternalMemberCourse>().HasKey(t => new { t.ExternalMemberId, t.CourseId });
+
+            builder.Entity<CourseTeacher>().HasKey(t => new { t.CourseId, t.TeacherId });
+
+            builder.Entity<StudentCompetition>().HasKey(t => new { t.StudentId, t.CompetitionId });
+
+            builder.Entity<TeacherScientificWork>().HasKey(t => new { t.TeacherId, t.ScientificWorkId });
         }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Competence> Competencies { get; set; }
