@@ -1,68 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FreshView.Core.Models
 {
-    /// <summary>
-    /// Научная работа.
-    /// </summary>
-    public class ScientificWork
+    public partial class ScientificWork
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; } = Guid.NewGuid();
-        [Required]
-        /// <summary>
-        /// Название.
-        /// </summary>
+        public Guid Id { get; set; }
         public string Name { get; set; }
-        [Required]
-        /// <summary>
-        /// Шифр.
-        /// </summary>
-        public string Code { get; set; } = "";
-        [Required]
-        /// <summary>
-        /// Дата публикации.
-        /// </summary>
-        public DateTime PublicationDate { get; set; } = new DateTime(2000, 1, 1);
-        [Required]
-        /// <summary>
-        /// Тематика.
-        /// </summary>
-        public string Subject { get; set; } = "";
-        [Required]
-        /// <summary>
-        /// Направление.
-        /// </summary>
-        public Guid CourseId { get; set; }
-        [Required]
-        /// <summary>
-        /// Ключевые слова.
-        /// </summary>
-        public string Keywords { get; set; } = "";
-#warning Может сделать как отдельную таблицу + кросстаблица для удобства поиска? На будущее.
-        [Required]
-        /// <summary>
-        /// Описание.
-        /// </summary>
-        public string Description { get; set; } = "";
-        [Required]
-        /// <summary>
-        /// Аннотация.
-        /// </summary>
-        public string Annotation { get; set; } = "";
+        public string Code { get; set; }
+        public DateTime PublicationDate { get; set; }
+        public string Subject { get; set; }
+        public string Keywords { get; set; }
+        public string Description { get; set; }
+        public string Annotation { get; set; }
+        public Guid? Course { get; set; }
 
-        public virtual Course Course { get; set; }
-        public List<Teacher> Teachers { get; set; }
-        public ScientificWork()
-        {
-            Teachers = new List<Teacher>();
-        }
+        public virtual Course CourseNavigation { get; set; }
     }
 }

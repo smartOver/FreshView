@@ -12,7 +12,7 @@ namespace FreshView.Core.Models
     {
         public static void Seed(IApplicationBuilder app)
         {
-            AppDbContext context = app.ApplicationServices.GetRequiredService<AppDbContext>();
+            FreshViewContext context = app.ApplicationServices.GetRequiredService<FreshViewContext>();
             var eProgram = new EducationalProgram()
             {
                 ProgramsCode = "09.03.02",
@@ -37,16 +37,16 @@ namespace FreshView.Core.Models
                 SecondName = "Николавена",
                 Name = "Наталья",
                 Position = "Преподаватель",
-                Department = department
+                Department = department.Id
             };
-            department.Teachers.Add(teacher);
 
-            course.Teachers.Add(teacher);
-            eProgram.Courses.Add(course);
+            context.EducationalProgram.Add(eProgram);
+            context.Course.Add(course);
+            context.Teacher.Add(teacher);
 
-            context.EducationalPrograms.Add(eProgram);
-            context.Courses.Add(course);
-            context.Teachers.Add(teacher);
+            department.Teacher.Add(teacher);
+            ///course.Teacher.Add(teacher);
+            eProgram.Course.Add(course);
         }
     }
 }

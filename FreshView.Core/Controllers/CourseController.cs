@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace FreshView.Core.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CourseController : ControllerBase
     {
-        private AppDbContext context;
-        public CourseController(AppDbContext ctx) => context = ctx;
+        private FreshViewContext context;
+        public CourseController(FreshViewContext ctx) => context = ctx;
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Course>>> Get() => await context.Courses.ToListAsync();
+        public async Task<ActionResult<IEnumerable<Course>>> Get() => await context.Course.ToListAsync();
     }
 }

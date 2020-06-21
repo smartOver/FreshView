@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FreshView.Core.Models
 {
-    public partial class Competition
+    public partial class Competitions
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

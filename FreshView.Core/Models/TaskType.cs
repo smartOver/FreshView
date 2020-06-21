@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FreshView.Core.Models
 {
-    public class TaskType
+    public partial class TaskType
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; } = Guid.NewGuid();
-        [Required]
-        /// <summary>
-        /// Название.
-        /// </summary>
+        public TaskType()
+        {
+            PartnersTask = new HashSet<PartnersTask>();
+        }
+
+        public Guid Id { get; set; }
         public string Name { get; set; }
-        // TODO: Заполнить таблицу значениями: лабораторная работа, кейс, КР
+
+        public virtual ICollection<PartnersTask> PartnersTask { get; set; }
     }
 }
